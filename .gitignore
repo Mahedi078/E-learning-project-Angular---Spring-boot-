@@ -4,7 +4,8 @@ frontend/dist/
 frontend/.angular/
 
 # Spring Boot build
-backend/target/
+Backend/target/
+
 
 # IDE/OS files
 .DS_Store
