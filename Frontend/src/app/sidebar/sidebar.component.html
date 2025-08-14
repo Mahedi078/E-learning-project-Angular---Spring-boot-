@@ -1,0 +1,33 @@
+<!-- Toggle button for small screens -->
+<button class="btn btn-primary d-md-none m-2" (click)="toggleSidebar()">
+  <i class="bi bi-list"></i>
+</button>
+
+<!-- Sidebar -->
+<div 
+  class="sidebar text-white d-flex flex-column p-4"
+  [ngClass]="{'collapsed': isSidebarCollapsed}"
+>
+  <div class="text-center mb-4">
+    <h4 class="fw-bold border-bottom pb-2 text-light">🌟 Admin Panel</h4>
+  </div>
+
+  <ul class="nav nav-pills flex-column gap-2">
+    <li class="nav-item" *ngFor="let item of menuItems">
+      <a
+        [routerLink]="item.link"
+        routerLinkActive="active"
+        class="nav-link sidebar-link d-flex align-items-center gap-2 px-3 py-2 rounded hover-effect"
+      >
+        <i [class]="item.icon + ' me-2'"></i> {{ item.label }}
+      </a>
+    </li>
+
+    <!-- Logout -->
+    <li class="nav-item mt-auto">
+      <a routerLink="/" class="nav-link text-danger fw-semibold sidebar-link d-flex align-items-center gap-2 px-3 py-2">
+        <i class="bi bi-box-arrow-right me-2"></i> Logout
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,12 @@
+<div class="course-list">
+  <h2>📚 All Courses</h2>
+  <div class="course-card" *ngFor="let course of courses">
+    <h3>{{ course.title }}</h3>
+    <p>{{ course.description }}</p>
+    <p><strong>Instructor:</strong> {{ course.teacherId }}</p>
+    <p><strong>Category:</strong> {{ course.categoryId }}</p>
+    <p><strong>Title:</strong> {{ course.title }}</p>
+   <button class="btn btn-primary" [routerLink]="['/courses/registration']">Enroll</button>
+  </div>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Course Materials</h2>
+
+  <div *ngIf="materials.length === 0" class="alert alert-warning text-center">
+    No materials found for this course.
+  </div>
+
+  <div class="row" *ngIf="materials.length > 0">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let material of materials">
+      <div class="card h-100 shadow-sm border-0">
+        
+        <!-- Show video -->
+        <div *ngIf="material.type === 'VIDEO'" class="ratio ratio-16x9">
+          <iframe
+            [src]="getSafeYoutubeUrl(material.url)"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- Show PDF -->
+        <div *ngIf="material.type === 'PDF'" class="p-3 text-center">
+          <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: red;"></i>
+          <p>
+            <a [href]="material.url" target="_blank" class="btn btn-outline-primary mt-2">
+              View PDF
+            </a>
+          </p>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ material.title }}</h5>
+          <p class="card-text">
+            <span class="badge bg-info text-dark">{{ material.type }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

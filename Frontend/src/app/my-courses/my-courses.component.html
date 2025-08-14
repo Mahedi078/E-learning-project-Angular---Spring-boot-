@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h3>My Courses</h3>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+    <div *ngIf="courses.length === 0 && !errorMessage">
+        No courses enrolled or approved yet.
+    </div>
+
+    <div class="row mt-3" *ngIf="courses.length > 0">
+        <div class="col-md-4 mb-3" *ngFor="let course of courses">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.title }}</h5>
+                    <p class="card-text">{{ course.description }}</p>
+                    <p><strong>Price:</strong> {{ course.price }} ৳</p>
+                    <button [routerLink]="['/course-materials', course.id]" class="btn btn-primary">
+                        View Materials
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

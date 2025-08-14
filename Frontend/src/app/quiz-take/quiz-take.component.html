@@ -1,0 +1,44 @@
+<div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
+  <h2 class="text-2xl font-bold mb-6 text-center text-indigo-700">{{ quiz?.title }}</h2>
+
+  <form (ngSubmit)="submit()" *ngIf="quiz?.questions">
+    <div *ngFor="let q of quiz.questions" class="mb-6">
+      <p class="text-lg font-semibold text-gray-800 mb-3">{{ q.questionText }}</p>
+
+      <div class="space-y-2">
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q{{ q.id }}" (change)="answers[q.id] = 'A'" class="accent-indigo-600" />
+          {{ q.optionA }}
+        </label>
+
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q{{ q.id }}" (change)="answers[q.id] = 'B'" class="accent-indigo-600" />
+          {{ q.optionB }}
+        </label>
+
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q{{ q.id }}" (change)="answers[q.id] = 'C'" class="accent-indigo-600" />
+          {{ q.optionC }}
+        </label>
+
+        <label class="flex items-center gap-2">
+          <input type="radio" name="q{{ q.id }}" (change)="answers[q.id] = 'D'" class="accent-indigo-600" />
+          {{ q.optionD }}
+        </label>
+      </div>
+
+      <hr class="my-4 border-t border-gray-300" />
+    </div>
+
+    <div class="text-center">
+      <button type="submit"
+        class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition duration-200">
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="result" class="mt-6 text-center">
+    <h3 class="text-xl font-bold text-green-600">{{ result }}</h3>
+  </div>
+</div>

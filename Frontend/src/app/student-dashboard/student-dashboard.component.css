@@ -1,0 +1,112 @@
+/* Overall Layout */
+.student-layout {
+  display: flex;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #2a2f4a;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px 20px;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #ffd700;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-bottom: 20px;
+}
+
+.nav-links a {
+  color: #cfd8dc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: block;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Main Dashboard */
+.dashboard-main {
+  margin-left: 220px;
+  padding: 40px;
+  width: calc(100% - 220px);
+  min-height: 100vh;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #2a2f4a;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #37474f;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.card a {
+  background: #1976d2;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.card a:hover {
+  background: #125ea4;
+}

@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-3">Check Enrollment Status</h3>
+
+  <div class="mb-3">
+    <input [(ngModel)]="email" type="email" class="form-control" placeholder="Enter your email">
+    <button class="btn btn-primary mt-2" (click)="checkStatus()">Check</button>
+  </div>
+
+  <div *ngIf="enroll">
+    <p><strong>Name:</strong> {{ enroll.name }}</p>
+    <p><strong>Course:</strong> {{ enroll.course }}</p>
+    <p><strong>Status:</strong> {{ enroll.status }}</p>
+    <p><strong>Course Price:</strong> {{ enroll.coursePrice }} ৳</p>
+
+    <button 
+      *ngIf="enroll.status === 'APPROVED'"
+      class="btn btn-success mt-3"
+      [routerLink]="['/student/check-status/payment']"
+      [queryParams]="{ 
+        email: enroll.email, 
+        course: enroll.course, 
+        price: enroll.coursePrice 
+      }"
+    >
+      Proceed to Payment
+    </button>
+  </div>
+</div>

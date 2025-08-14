@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h3 class="text-success mb-4">📥 Add Course Material</h3>
+
+  <div *ngIf="message" class="alert alert-info text-center">
+    {{ message }}
+  </div>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Material Title</label>
+      <input type="text" class="form-control" [(ngModel)]="material.title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Material Type</label>
+      <select class="form-select" [(ngModel)]="material.type" name="type" required>
+        <option value="" disabled selected>Select type</option>
+        <option value="VIDEO">VIDEO</option>
+        <option value="PDF">PDF</option>
+        <option value="DOC">DOC</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Material URL</label>
+      <input type="text" class="form-control" [(ngModel)]="material.url" name="url" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Select Course</label>
+      <select class="form-select" [(ngModel)]="material.course.id" name="courseId" required>
+        <option value="0" disabled selected>Select Course</option>
+        <option *ngFor="let c of courses" [value]="c.id">{{ c.title }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Submit Material</button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Add Course Category</h2>
+  <form (ngSubmit)="onSubmit()" #categoryForm="ngForm" class="form-box">
+    <input type="number" name="id" [(ngModel)]="category.id" placeholder="ID" required />
+    <input type="text" name="code" [(ngModel)]="category.code" placeholder="Code" required /> 
+
+    <input type="text" name="name" [(ngModel)]="category.name" placeholder="Category Name" required />
+    <textarea name="description" [(ngModel)]="category.description" placeholder="Description" rows="4" required></textarea>
+    <button type="submit">Add Category</button>
+  </form>
+
+  <h3>Course Categories</h3>
+  <table *ngIf="categories.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of categories">
+        <td>{{ cat.id }}</td>
+        <td>{{ cat.code }}</td>
+        <td>{{ cat.name }}</td>
+        <td>{{ cat.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

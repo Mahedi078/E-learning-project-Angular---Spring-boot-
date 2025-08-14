@@ -1,0 +1,23 @@
+<div class="student-layout">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">🎓 LearnIt</div>
+    <ul class="nav-links">
+      <li><a routerLink="/student">🏠 Dashboard</a></li>
+      <li><a routerLink="/student/courses">📚All Courses</a></li>
+      <li><a routerLink="student/my-courses">📚My Course</a></li>
+      <li><a routerLink="/student/check-status">🧾 Check Status</a></li>
+       <li><a routerLink="/student/payment-status">💳 Payment Status</a></li>
+      <!-- <li><a routerLink="/student/course-material"> ✅Course Material</a></li> -->
+      <li><a routerLink="/student/quizzes">🧪 Quizzes</a></li>
+      <li><a routerLink="/student/certificate">🎓 Certificates</a></li>
+      <li><a routerLink="/student/profile">👤 Profile</a></li>
+      <li><a routerLink="/">🚪 Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main content that changes dynamically -->
+  <div class="dashboard-main">
+    <router-outlet></router-outlet>
+  </div>
+</div>

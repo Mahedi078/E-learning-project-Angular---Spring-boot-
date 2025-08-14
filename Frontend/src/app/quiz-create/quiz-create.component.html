@@ -1,0 +1,56 @@
+<div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-8">
+  <h2 class="text-2xl font-bold text-indigo-700 mb-6 text-center">📝 Create New Quiz</h2>
+
+  <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div>
+      <label class="block text-gray-700 font-semibold mb-2">Title:</label>
+      <input formControlName="title" required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+    </div>
+
+    <div>
+      <label class="block text-gray-700 font-semibold mb-2">Description:</label>
+      <textarea formControlName="description" rows="3"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+    </div>
+
+    <div formArrayName="questions" class="space-y-8">
+      <div *ngFor="let q of questions.controls; let i = index" [formGroupName]="i"
+        class="bg-gray-50 p-6 border rounded-md shadow-sm">
+        <h4 class="text-lg font-semibold mb-4">Question {{ i + 1 }}</h4>
+
+        <input formControlName="questionText" placeholder="Question Text"
+          class="w-full mb-3 px-4 py-2 border border-gray-300 rounded-md" />
+
+        <div class="grid grid-cols-2 gap-4 mb-3">
+          <input formControlName="optionA" placeholder="Option A"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md" />
+          <input formControlName="optionB" placeholder="Option B"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md" />
+          <input formControlName="optionC" placeholder="Option C"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md" />
+          <input formControlName="optionD" placeholder="Option D"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md" />
+        </div>
+
+        <input formControlName="correctOption" placeholder="Correct Option (A/B/C/D)"
+          class="w-full mb-3 px-4 py-2 border border-gray-300 rounded-md" />
+
+        <button type="button" (click)="removeQuestion(i)"
+          class="text-red-600 hover:underline text-sm">🗑 Remove Question</button>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-6">
+      <button type="button" (click)="addQuestion()"
+        class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2">
+        ➕ Add Question
+      </button>
+
+      <button type="submit"
+        class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition duration-200">
+        ✅ Create Quiz
+      </button>
+    </div>
+  </form>
+</div>

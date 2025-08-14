@@ -1,0 +1,22 @@
+<div class="container mt-5 text-center">
+  <div #certificate class="certificate-box" id="certificate">
+    <div class="certificate-border">
+      <h1 class="certificate-title">Certificate of Completion</h1>
+      <p class="certificate-body">
+        This is to certify that <br />
+        <strong>{{ studentName }}</strong> <br />
+        has successfully completed the course <br />
+        <strong>{{ courseTitle }}</strong> <br />
+        on <strong>{{ todayDate }}</strong>
+      </p>
+      <div class="signature-section">
+        <div class="signature">
+          <hr />
+          <p>Instructor Signature</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary mt-4" (click)="downloadPDF()">Download Certificate</button>
+</div>

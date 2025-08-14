@@ -1,0 +1,80 @@
+<!-- Main Content -->
+<div class="container py-5 px-3 px-md-5">
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-header bg-info text-white rounded-top-4">
+      <h4 class="mb-0">🎓 Add New Course</h4>
+    </div>
+    <div class="card-body bg-light rounded-bottom-4">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold">📘 Title</label>
+          <input
+            class="form-control shadow-sm rounded-3"
+            name="title"
+            [(ngModel)]="course.title"
+            placeholder="Enter course title"
+            required />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold">📝 Description</label>
+          <textarea
+            class="form-control shadow-sm rounded-3"
+            name="description"
+            [(ngModel)]="course.description"
+            rows="3"
+            placeholder="Enter course description"
+            required></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <label class="form-label fw-semibold">👨‍🏫 Teacher ID</label>
+            <input
+              type="number"
+              class="form-control shadow-sm rounded-3"
+              name="teacherId"
+              [(ngModel)]="course.teacherId"
+              placeholder="e.g. 101"
+              required />
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <label class="form-label fw-semibold">📂 Category ID</label>
+            <input
+              type="number"
+              class="form-control shadow-sm rounded-3"
+              name="categoryId"
+              [(ngModel)]="course.categoryId"
+              placeholder="e.g. 5"
+              required />
+          </div>
+        </div>
+        <div class="mb-3">
+  <label for="price" class="form-label">Price (৳)</label>
+  <input type="number" class="form-control" id="price" [(ngModel)]="course.price" name="price" required>
+</div>
+
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold">⚙️ Status</label>
+          <select
+            class="form-select shadow-sm rounded-3"
+            name="status"
+            [(ngModel)]="course.status"
+            required>
+            <option value="" disabled selected>Select status</option>
+            <option value="active">✅ Active</option>
+            <option value="inactive">❌ Inactive</option>
+          </select>
+        </div>
+
+        <button class="btn btn-success w-100 py-2 fw-bold shadow-sm" type="submit">
+          ➕ Add Course
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

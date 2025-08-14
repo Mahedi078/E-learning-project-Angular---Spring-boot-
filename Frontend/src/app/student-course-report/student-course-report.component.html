@@ -1,0 +1,33 @@
+<!-- student-course-report.component.html -->
+<div class="container mt-4">
+  <h3>Student Course Purchase Report</h3>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Student Name</th>
+        <th>Email</th>
+        <th>Course Title</th>
+        <th>Course Price</th>
+        <th>Financial Status</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      
+      <tr *ngFor="let report of studentCourseReports">
+        <td>{{ report.studentName }}</td>
+        <td>{{ report.studentEmail }}</td>
+        <td>{{ report.courseTitle }}</td>
+        <td>{{ report.coursePrice }}</td>
+        <td>{{ report.financialStatus }}</td>
+      </tr>
+          <tr class="table-success fw-bold">
+  <td colspan="3" class="text-end">Net Total:</td>
+  <td>{{ totalAmount | currency:'BDT':'symbol-narrow' }}</td>
+  <td></td>
+</tr>
+    </tbody>
+    
+  </table>
+</div>

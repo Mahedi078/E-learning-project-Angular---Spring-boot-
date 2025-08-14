@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-header bg-primary text-white text-center rounded-top-4">
+      <h3 class="mb-0">📋 Pending Enrollments</h3>
+    </div>
+
+    <div class="card-body p-4">
+      <div *ngIf="pendingEnrollments.length === 0" class="alert alert-info text-center">
+        No pending enrollments found.
+      </div>
+
+      <div *ngIf="pendingEnrollments.length > 0" class="table-responsive">
+        <table class="table table-bordered table-hover align-middle text-center">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Course</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let enroll of pendingEnrollments; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ enroll.name }}</td>
+              <td>{{ enroll.course.title }}</td>
+              <td>{{ enroll.email }}</td>
+              <td>{{ enroll.phone }}</td>
+              <td>{{ enroll.location }}</td>
+              <td>
+                <div class="d-flex justify-content-center gap-2">
+                  <button class="btn btn-success btn-sm px-3" (click)="approve(enroll.id)">
+                    <i class="bi bi-check-circle me-1"></i> Approve
+                  </button>
+                  <button class="btn btn-danger btn-sm px-3" (click)="reject(enroll.id)">
+                    <i class="bi bi-x-circle me-1"></i> Reject
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

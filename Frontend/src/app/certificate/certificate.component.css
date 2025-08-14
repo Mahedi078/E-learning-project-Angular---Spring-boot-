@@ -1,0 +1,44 @@
+.container {
+  font-family: 'Georgia', serif;
+}
+
+.certificate-box {
+  background: #fff;
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 10px solid #3b82f6;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.certificate-border {
+  border: 5px dashed #60a5fa;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.certificate-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.certificate-body {
+  font-size: 20px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.signature-section {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.signature {
+  width: 200px;
+  text-align: center;
+}

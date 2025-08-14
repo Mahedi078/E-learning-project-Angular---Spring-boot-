@@ -1,0 +1,11 @@
+# Angular build/cache
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Spring Boot build
+backend/target/
+
+# IDE/OS files
+.DS_Store
+Thumbs.db

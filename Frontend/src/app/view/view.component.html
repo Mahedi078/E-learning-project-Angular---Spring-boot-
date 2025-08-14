@@ -1,0 +1,50 @@
+<h2>Edit and Delete students</h2>
+
+<table border="1" style="text-align: center;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Edit </th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let entity of entities">
+        <tr>
+            <td>{{entity.employee_name}}</td>
+            <td>{{entity.employee_age}}</td>
+            <td>{{entity.employee_salary}}</td>
+            <td><button (click)="edit(entity)">Edit</button></td>
+            <td><button (click)="delete(entity)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="divStatus">
+    <h2>Update this Product</h2>
+
+    <form autocomplete="off" #entityData="ngForm" (ngSubmit)="update(entityData.value)">
+        <table>
+            <tr style="display: none;">
+                <td>Id :</td>
+                <td><input type="text" name="id" [(ngModel)]="entity.id"></td>
+            </tr>
+            <tr>
+                <td>Name :</td>
+                <td><input type="text" name="employee_name" [(ngModel)]="entity.employee_name"></td>
+            </tr>
+            <tr>
+                <td>Age :</td>
+                <td><input type="text" name="employee_age" [(ngModel)]="entity.employee_age"></td>
+            </tr>
+            <tr>
+                <td>Salary :</td>
+                <td><input type="text" name="employee_salary" [(ngModel)]="entity.employee_salary"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Update</button></td>
+            </tr>
+        </table>
+    </form>
+</div>

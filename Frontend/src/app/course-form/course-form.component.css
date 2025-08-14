@@ -1,0 +1,11 @@
+.card {
+  border-radius: 12px;
+}
+
+.card-header h4 {
+  font-weight: bold;
+}
+
+input, textarea, select {
+  border-radius: 8px;
+}

@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h3 class="text-center mb-4">Manual Payment Form</h3>
+
+    <div class="alert alert-info">
+      Please send your payment to <strong>01XXXXXXXXX</strong> via <strong>bKash</strong> or <strong>Nagad</strong>.<br>
+      For demo purposes, use one of the following fake Transaction IDs:
+      <br>
+      <code>TXN123456</code>, <code>TXN789012</code>, <code>TXNTEST001</code>
+    </div>
+
+    <form (ngSubmit)="submitManualPayment()" #paymentForm="ngForm">
+      
+      <!-- Payment Method -->
+      <div class="mb-3">
+        <label class="form-label">Payment Method</label>
+        <select class="form-select" [(ngModel)]="paymentDetails.method" name="method" required>
+          <option value="">Select Method</option>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
+          <option value="Rocket">Rocket</option>
+        </select>
+      </div>
+
+      <!-- Sender Number -->
+      <div class="mb-3">
+        <label class="form-label">Sender Number</label>
+        <input type="text" class="form-control" [(ngModel)]="paymentDetails.sender" name="sender" required placeholder="e.g. 017XXXXXXXX">
+      </div>
+
+      <!-- Transaction ID -->
+      <div class="mb-3">
+        <label class="form-label">Transaction ID</label>
+        <select class="form-select" [(ngModel)]="paymentDetails.transactionId" name="transactionId" required>
+          <option value="">Select a demo Transaction ID</option>
+          <option>TXN123456</option>
+          <option>TXN789012</option>
+          <option>TXNTEST001</option>
+        </select>
+      </div>
+
+      <!-- Course (readonly) -->
+      <div class="mb-3">
+        <label class="form-label">Course</label>
+        <input type="text" class="form-control" [(ngModel)]="paymentDetails.courseName" name="courseName" readonly>
+      </div>
+
+      <!-- Amount (readonly) -->
+      <div class="mb-3">
+        <label class="form-label">Amount (৳)</label>
+        <input type="number" class="form-control" [(ngModel)]="paymentDetails.amount" name="amount" readonly>
+      </div>
+
+      <!-- Instrument Name -->
+      <div class="mb-3">
+        <label class="form-label">Instrument Name</label>
+        <input type="text" class="form-control" [(ngModel)]="paymentDetails.instrumentName" name="instrumentName" placeholder="e.g. Guitar, Keyboard" required>
+      </div>
+
+      <!-- Email (readonly) -->
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="paymentDetails.email" name="email" readonly>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4" [disabled]="!paymentForm.form.valid">
+          Submit Payment
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

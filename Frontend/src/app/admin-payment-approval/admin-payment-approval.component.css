@@ -1,0 +1,9 @@
+button.btn-success:hover {
+  background-color: #198754cc; /* slightly transparent green */
+  border-color: #198754cc;
+}
+
+button.btn-danger:hover {
+  background-color: #dc3545cc; /* slightly transparent red */
+  border-color: #dc3545cc;
+}
